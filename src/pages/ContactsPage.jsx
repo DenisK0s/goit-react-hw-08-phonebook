@@ -1,14 +1,13 @@
-// модули
+//модули
 import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 //компоненты
-import AppBar from './components/AppBar';
-import Container from './components/CommonComponents/Container';
-import Form from './components/Form';
-import Contacts from './components/Contacts';
-import Filter from './components/Filter';
-import Loader from '../src/components/Loader';
+import Container from '../components/CommonComponents/Container';
+import ContactsForm from '../components/ContactsForm';
+import Contacts from '../components/Contacts';
+import Filter from '../components/Filter';
+import Loader from '../components/Loader';
 
 //операции
 import {
@@ -16,7 +15,7 @@ import {
   phonebookSelectors,
 } from '../src/redux/phonebook';
 
-class App extends Component {
+class ContactsPage extends Component {
   componentDidMount() {
     this.props.fetchContacts();
   }
@@ -26,7 +25,7 @@ class App extends Component {
     return (
       <Container>
         <h2 className="Title">Phonebook</h2>
-        <Form onSubmit={this.formSubmitHandler} />
+        <ContactsForm onSubmit={this.formSubmitHandler} />
         <h2 className="Title">Contacts</h2>
         <Filter />
         {loadingContacts ? <Loader type="Hearts" /> : <Contacts />}
@@ -47,4 +46,4 @@ const mapDispatchToProps = dispatch => ({
   fetchContacts: () => dispatch(phonebookOperations.fetchContact()),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactsPage);

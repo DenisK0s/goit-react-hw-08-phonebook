@@ -15,7 +15,7 @@ const INITIAL_STATE = {
   number: '',
 };
 
-class Form extends Component {
+class ContactsForm extends Component {
   state = {
     ...INITIAL_STATE,
   };
@@ -84,4 +84,4 @@ const mapDispatchToProps = dispatch => ({
   onSubmit: data => dispatch(phonebookOperations.addContact(data)),
 });
 
-export default connect(mapStateToProps, mapDispatchToProps)(Form);
+export default connect(mapStateToProps, mapDispatchToProps)(ContactsForm);

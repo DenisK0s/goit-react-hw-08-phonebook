@@ -6,7 +6,7 @@ import styles from './Input.module.css';
 
 const Input = ({
   inputLabel,
-  type,
+  type = 'text',
   value,
   onInputChange,
   pattern,

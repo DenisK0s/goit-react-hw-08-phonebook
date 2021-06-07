@@ -1,0 +1,7 @@
+.appBar {
+  display: flex;
+  align-content: space-between;
+  align-items: center;
+
+  width: 100%;
+}
