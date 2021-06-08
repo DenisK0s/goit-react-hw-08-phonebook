@@ -1,8 +1,8 @@
-.List {
+.list {
   list-style: none;
 }
 
-.Link {
+.link {
   display: block;
   text-decoration: none;
 }
@@ -13,8 +13,13 @@ img {
   height: auto;
 }
 
-.Title {
+.title {
   margin-top: 0;
   margin-bottom: 20px;
 }
 
+.container {
+  width: 1200px;
+  padding: 20px;
+  margin: 0 auto;
+}

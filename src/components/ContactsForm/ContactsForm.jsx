@@ -6,9 +6,10 @@ import { phonebookOperations, phonebookSelectors } from '../../redux/phonebook';
 
 //компоненты
 import Input from '../Input';
+import Button from '../CommonComponents/Button';
 
 //стили
-import styles from './Form.module.css';
+import styles from './ContactsForm.module.css';
 
 const INITIAL_STATE = {
   name: '',
@@ -49,7 +50,7 @@ class ContactsForm extends Component {
   render() {
     const { name, number } = this.state;
     return (
-      <form className={styles.Form} onSubmit={this.formSubmit}>
+      <form className={styles.form} onSubmit={this.formSubmit}>
         <Input
           inputLabel="Name"
           type="text"
@@ -68,9 +69,9 @@ class ContactsForm extends Component {
           title="Номер телефона должен состоять цифр и может содержать пробелы, тире, круглые скобки и может начинаться с +"
           onInputChange={this.inputHandler}
         />
-        <button type="submit" className={styles.FormButton}>
+        <Button type="submit" className={styles.formButton}>
           Add contact
-        </button>
+        </Button>
       </form>
     );
   }

@@ -14,10 +14,10 @@ const Input = ({
   name,
 }) => {
   return (
-    <label htmlFor="" className={styles.InputLabel}>
+    <label htmlFor="" className={styles.inputLabel}>
       {inputLabel}
       <input
-        className={styles.Input}
+        className={styles.input}
         type={type}
         name={name}
         value={value}

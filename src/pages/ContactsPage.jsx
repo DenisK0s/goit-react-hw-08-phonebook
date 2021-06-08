@@ -10,10 +10,7 @@ import Filter from '../components/Filter';
 import Loader from '../components/Loader';
 
 //операции
-import {
-  phonebookOperations,
-  phonebookSelectors,
-} from '../src/redux/phonebook';
+import { phonebookOperations, phonebookSelectors } from '../redux/phonebook';
 
 class ContactsPage extends Component {
   componentDidMount() {

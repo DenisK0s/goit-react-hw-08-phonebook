@@ -1,20 +1,23 @@
 //модули
 
 //компоненты
-import Container from '../CommonComponents/Container';
 import MainNavigation from '../Navigation/MainNavigation';
 import AuthNavigation from '../Navigation/AuthNavigation';
+import UserMenu from '../UserMenu';
+
+//либы
+import classnames from 'classnames';
 
 //стили
-import styles from 'AppBar.module.css';
+import styles from './AppBar.module.css';
 
 const AppBar = ({ isAuthenticated }) => {
   return (
     <header className={styles.appBar}>
-      <Container>
+      <div className={classnames(styles.headerContainer, 'container')}>
         <MainNavigation />
-        {isAuthenticated ? <Usermenu /> : <AuthNavigation />}
-      </Container>
+        {isAuthenticated ? <UserMenu /> : <AuthNavigation />}
+      </div>
     </header>
   );
 };

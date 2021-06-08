@@ -1,50 +1,50 @@
 // модули
-import React, { Component } from 'react';
-import { connect } from 'react-redux';
+import React, { Component, Suspense, lazy } from 'react';
+import { Route, Switch } from 'react-router-dom';
 
 //компоненты
 import AppBar from './components/AppBar';
 import Container from './components/CommonComponents/Container';
-import Form from './components/Form';
-import Contacts from './components/Contacts';
-import Filter from './components/Filter';
-import Loader from '../src/components/Loader';
 
-//операции
-import {
-  phonebookOperations,
-  phonebookSelectors,
-} from '../src/redux/phonebook';
+//пути
+import routes from './routes';
+
+//чанки
+const HomePage = lazy(() =>
+  import('./pages/HomePage.jsx' /*webpackChunkName: "home-page" */),
+);
+const ContactsPage = lazy(() =>
+  import('./pages/ContactsPage.jsx' /*webpackChunkName: "contacts-page" */),
+);
+const RegisterPage = lazy(() =>
+  import('./pages/RegisterPage.jsx' /*webpackChunkName: "registration-page" */),
+);
+const LoginPage = lazy(() =>
+  import('./pages/LoginPage.jsx' /*webpackChunkName: "login-page" */),
+);
+const ErrorPage = lazy(() =>
+  import('./pages/ErrorPage.jsx' /*webpackChunkName: "error-page" */),
+);
 
 class App extends Component {
-  componentDidMount() {
-    this.props.fetchContacts();
-  }
-
   render() {
-    const { loadingContacts } = this.props;
     return (
-      <Container>
-        <h2 className="Title">Phonebook</h2>
-        <Form onSubmit={this.formSubmitHandler} />
-        <h2 className="Title">Contacts</h2>
-        <Filter />
-        {loadingContacts ? <Loader type="Hearts" /> : <Contacts />}
-      </Container>
+      <>
+        <AppBar />
+        <Container>
+          <Suspense fallback={<h1>Loading...</h1>}>
+            <Switch>
+              <Route path={routes.home} exact component={HomePage} />
+              <Route path={routes.contacts} component={ContactsPage} />
+              <Route path={routes.registration} component={RegisterPage} />
+              <Route path={routes.login} component={LoginPage} />
+              <Route component={ErrorPage} />
+            </Switch>
+          </Suspense>
+        </Container>
+      </>
     );
   }
 }
 
-const mapStateToProps = state => {
-  const loading = phonebookSelectors.getLoading(state);
-
-  return {
-    loadingContacts: loading,
-  };
-};
-
-const mapDispatchToProps = dispatch => ({
-  fetchContacts: () => dispatch(phonebookOperations.fetchContact()),
-});
-
-export default connect(mapStateToProps, mapDispatchToProps)(App);
+export default App;

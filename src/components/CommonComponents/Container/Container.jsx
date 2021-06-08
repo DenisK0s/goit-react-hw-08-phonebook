@@ -1,11 +1,8 @@
 //модули
 import PropTypes from 'prop-types';
 
-//стили
-import styles from './Container.module.css';
-
 const Container = ({ children }) => {
-  return <div className={styles.Container}>{children}</div>;
+  return <div className="container">{children}</div>;
 };
 
 Container.propTypes = {

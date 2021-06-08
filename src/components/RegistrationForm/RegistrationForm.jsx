@@ -3,13 +3,14 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 //стили
-import styles from './LoginForm.module.css';
+import styles from './RegistrationForm.module.css';
 
 //компоненты
 import Input from '../Input';
 
-class LoginForm extends Component {
+class RegistrationForm extends Component {
   state = {
+    name: null,
     email: null,
     password: null,
   };
@@ -24,9 +25,17 @@ class LoginForm extends Component {
     // const {} = this.props;
   };
   render() {
-    const { email, password } = this.state;
+    const { email, password, name } = this.state;
     return (
-      <form className={styles.loginForm}>
+      <form className={styles.registrationForm}>
+        <Input
+          inputLabel="name"
+          type="text"
+          name="name"
+          value={name}
+          autoComplete="off"
+          onInputChange={this.handleChange}
+        />
         <Input
           inputLabel="e-mail"
           type="email"
@@ -50,4 +59,4 @@ class LoginForm extends Component {
 const mapStateToProps = () => {};
 const mapDispatchToProps = () => {};
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
+export default connect(mapStateToProps, mapDispatchToProps)(RegistrationForm);

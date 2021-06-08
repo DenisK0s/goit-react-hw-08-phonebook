@@ -1,7 +1,15 @@
 .appBar {
+  text-align: center;
+}
+
+.headerContainer {
   display: flex;
-  align-content: space-between;
+  justify-content: space-between;
   align-items: center;
 
-  width: 100%;
+  /* background-color: mediumorchid; */
+
+  border-bottom: 1px solid black;
+
+  box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.3);
 }

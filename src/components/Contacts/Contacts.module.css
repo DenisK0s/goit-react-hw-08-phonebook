@@ -1,24 +1,24 @@
-.Contacts {
+.contacts {
   width: 500px;
 
   padding-top: 20px;
 }
 
-.ContactsList {
+.contactsList {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
 }
 
-.ContactsListItem {
+.contactsListItem {
   display: inline-flex;
   justify-content: space-between;
 }
 
-.ContactsListItem + .ContactsListItem {
+.contactsListItem + .contactsListItem {
   margin-top: 15px;
 }
 
-.ContactValue {
+.contactValue {
   margin-right: 10px;
 }

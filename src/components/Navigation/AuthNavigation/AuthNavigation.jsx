@@ -1,17 +1,20 @@
 //модули
 import { NavLink } from 'react-router-dom';
 
+//либы
+import classnames from 'classnames';
+
 //стили
-import styles from 'AuthNavigation.module.css';
+import styles from './AuthNavigation.module.css';
 
 //настройки
-import routes from '../../routes';
+import routes from '../../../routes';
 
 const AuthNavigation = () => {
   return (
     <div className={styles.authNavBox}>
       <NavLink
-        className={styles.authNavLink}
+        className={classnames(styles.authNavLink, 'link')}
         activeClassName={styles.authNavActiveLink}
         to={routes.registration}
         exact
@@ -19,7 +22,7 @@ const AuthNavigation = () => {
         Registration
       </NavLink>
       <NavLink
-        className={styles.authNavLink}
+        className={classnames(styles.authNavLink, 'link')}
         activeClassName={styles.authNavActiveLink}
         to={routes.login}
         exact

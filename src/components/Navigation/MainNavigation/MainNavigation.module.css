@@ -1,0 +1,28 @@
+.navigation {
+  min-width: 100px;
+  margin: 0 auto;
+}
+
+.mainNavList {
+  display: inline-flex;
+}
+
+.navigationItem:not(:last-child) {
+  margin-right: 10px;
+}
+
+.navigationActiveItem {
+  color: green;
+}
+
+.navigationItem {
+  font-weight: 700;
+
+  transform: scale(1);
+  transition: transform, 200ms linear;
+}
+
+.navigationItem:hover,
+.navigationItem:focus {
+  transform: scale(1.1);
+}
