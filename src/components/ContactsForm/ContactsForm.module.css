@@ -12,13 +12,5 @@
 }
 
 .formButton {
-  min-width: 50px;
-
-  padding: 10px;
-
-  border: none;
-
-  border-radius: 2px;
-
-  background-color: mediumseagreen;
+  color: white;
 }

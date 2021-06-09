@@ -3,7 +3,6 @@ import React, { Component } from 'react';
 import { connect } from 'react-redux';
 
 //компоненты
-import Container from '../components/CommonComponents/Container';
 import ContactsForm from '../components/ContactsForm';
 import Contacts from '../components/Contacts';
 import Filter from '../components/Filter';
@@ -20,13 +19,13 @@ class ContactsPage extends Component {
   render() {
     const { loadingContacts } = this.props;
     return (
-      <Container>
+      <>
         <h2 className="Title">Phonebook</h2>
         <ContactsForm onSubmit={this.formSubmitHandler} />
         <h2 className="Title">Contacts</h2>
         <Filter />
         {loadingContacts ? <Loader type="Hearts" /> : <Contacts />}
-      </Container>
+      </>
     );
   }
 }

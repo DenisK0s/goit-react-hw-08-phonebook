@@ -7,6 +7,7 @@ import styles from './LoginForm.module.css';
 
 //компоненты
 import Input from '../Input';
+import Button from '../CommonComponents/Button';
 
 class LoginForm extends Component {
   state = {
@@ -42,6 +43,7 @@ class LoginForm extends Component {
           autoComplete="off"
           onInputChange={this.handleChange}
         />
+        <Button type="submit">Enter</Button>
       </form>
     );
   }

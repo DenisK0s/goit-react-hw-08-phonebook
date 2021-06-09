@@ -7,6 +7,10 @@ import styles from './RegistrationForm.module.css';
 
 //компоненты
 import Input from '../Input';
+import Button from '../CommonComponents/Button';
+
+//операции
+import { authOperations } from '../../redux/auth';
 
 class RegistrationForm extends Component {
   state = {
@@ -22,12 +26,14 @@ class RegistrationForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    // const {} = this.props;
+    const { onRegister } = this.props;
+
+    onRegister(this.state);
   };
   render() {
     const { email, password, name } = this.state;
     return (
-      <form className={styles.registrationForm}>
+      <form className={styles.registrationForm} onSubmit={this.handleSubmit}>
         <Input
           inputLabel="name"
           type="text"
@@ -51,12 +57,19 @@ class RegistrationForm extends Component {
           autoComplete="off"
           onInputChange={this.handleChange}
         />
+        <Button type="submit">Register</Button>
       </form>
     );
   }
 }
 
-const mapStateToProps = () => {};
-const mapDispatchToProps = () => {};
+const mapDispatchToProps = dispatch => ({
+  onRegister: data => dispatch(authOperations.register()),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(RegistrationForm);
+//сокращённая запись
+// const mapDispatchToProps = {
+//   onSubmit: authOperations.register,
+// };
+
+export default connect(null, mapDispatchToProps)(RegistrationForm);

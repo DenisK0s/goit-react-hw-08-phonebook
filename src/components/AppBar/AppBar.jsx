@@ -2,6 +2,7 @@
 
 //компоненты
 import MainNavigation from '../Navigation/MainNavigation';
+import Logo from '../Logo';
 import AuthNavigation from '../Navigation/AuthNavigation';
 import UserMenu from '../UserMenu';
 
@@ -15,6 +16,7 @@ const AppBar = ({ isAuthenticated }) => {
   return (
     <header className={styles.appBar}>
       <div className={classnames(styles.headerContainer, 'container')}>
+        <Logo />
         <MainNavigation />
         {isAuthenticated ? <UserMenu /> : <AuthNavigation />}
       </div>
