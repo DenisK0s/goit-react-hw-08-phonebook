@@ -8,6 +8,7 @@ import {
   REGISTER,
 } from 'redux-persist';
 import { phonebookReducer } from './phonebook';
+import { authReducer } from './auth';
 
 import logger from 'redux-logger';
 
@@ -22,6 +23,7 @@ const middleware = [
 
 const store = configureStore({
   reducer: {
+    auth: authReducer,
     phonebook: phonebookReducer,
   },
   middleware,

@@ -21,6 +21,7 @@ class RegistrationForm extends Component {
 
   handleChange = ({ target: { name, value } }) => {
     this.setState({ [name]: value });
+    console.log(this.state);
   };
 
   handleSubmit = event => {
@@ -64,7 +65,7 @@ class RegistrationForm extends Component {
 }
 
 const mapDispatchToProps = dispatch => ({
-  onRegister: data => dispatch(authOperations.register()),
+  onRegister: data => dispatch(authOperations.register(data)),
 });
 
 //сокращённая запись

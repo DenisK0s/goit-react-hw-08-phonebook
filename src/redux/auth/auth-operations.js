@@ -4,7 +4,7 @@ import axios from 'axios';
 //действия
 import authActions from './auth-actions';
 
-axios.defaults.baseURL = 'https://connections-api.herokuapp.com';
+axios.defaults.baseURL = 'https://connections-api.herokuapp.com/';
 axios.defaults.headers.post['Content-Type'] = 'application/json';
 
 const breakPoints = {
@@ -14,14 +14,14 @@ const breakPoints = {
   // LOGOUT: '/users/logout',
 };
 
-const token = {};
+// const token = {};
 
 const register = credentials => async dispatch => {
   dispatch(authActions.registerRequest());
   try {
     const response = await axios.post(breakPoints.REGISTR, credentials);
 
-    dispatch(authActions.registerSuccess(response));
+    dispatch(authActions.registerSuccess(response.data));
   } catch ({ message }) {
     dispatch(authActions.registerError(message));
   }
