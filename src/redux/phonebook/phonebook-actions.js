@@ -1,9 +1,13 @@
 import { createAction } from '@reduxjs/toolkit';
 
 //забрать все контакты
-export const fetchContactRequest = createAction('contacts/fetchContactRequest');
-export const fetchContactSuccess = createAction('contacts/fetchContactSuccess');
-export const fetchContactError = createAction('contacts/fetchContactError');
+export const fetchContactsRequest = createAction(
+  'contacts/fetchContactsRequest',
+);
+export const fetchContactsSuccess = createAction(
+  'contacts/fetchContactsSuccess',
+);
+export const fetchContactsError = createAction('contacts/fetchContactsError');
 
 //добавить контакт
 export const addContactRequest = createAction('contacts/addContactRequest');

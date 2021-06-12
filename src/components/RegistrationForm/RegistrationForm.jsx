@@ -14,9 +14,9 @@ import { authOperations } from '../../redux/auth';
 
 class RegistrationForm extends Component {
   state = {
-    name: null,
-    email: null,
-    password: null,
+    name: '',
+    email: '',
+    password: '',
   };
 
   handleChange = ({ target: { name, value } }) => {

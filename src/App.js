@@ -1,10 +1,14 @@
 // модули
 import React, { Component, Suspense, lazy } from 'react';
 import { Route, Switch } from 'react-router-dom';
+import { connect } from 'react-redux';
 
 //компоненты
 import AppBar from './components/AppBar';
 import Container from './components/CommonComponents/Container';
+
+//операции
+import { authOperations } from './redux/auth';
 
 //пути
 import routes from './routes';
@@ -27,6 +31,9 @@ const ErrorPage = lazy(() =>
 );
 
 class App extends Component {
+  componentDidMount() {
+    this.props.onGetCurrentUser();
+  }
   render() {
     return (
       <>
@@ -47,4 +54,8 @@ class App extends Component {
   }
 }
 
-export default App;
+const mapDispatchToProps = dispatch => ({
+  onGetCurrentUser: () => dispatch(authOperations.getCurrentUser()),
+});
+
+export default connect(null, mapDispatchToProps)(App);

@@ -9,8 +9,12 @@ import UserMenu from '../UserMenu';
 //либы
 import classnames from 'classnames';
 
+//селекторы
+import { getIsAuthenticated } from '../../redux/auth';
+
 //стили
 import styles from './AppBar.module.css';
+import { connect } from 'react-redux';
 
 const AppBar = ({ isAuthenticated }) => {
   return (
@@ -24,4 +28,8 @@ const AppBar = ({ isAuthenticated }) => {
   );
 };
 
-export default AppBar;
+const mapStateToProps = state => ({
+  isAuthenticated: getIsAuthenticated(state),
+});
+
+export default connect(mapStateToProps)(AppBar);

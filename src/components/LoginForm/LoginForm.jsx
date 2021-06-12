@@ -9,10 +9,13 @@ import styles from './LoginForm.module.css';
 import Input from '../Input';
 import Button from '../CommonComponents/Button';
 
+//операции
+import { authOperations } from '../../redux/auth';
+
 class LoginForm extends Component {
   state = {
-    email: null,
-    password: null,
+    email: '',
+    password: '',
   };
 
   handleChange = ({ target: { name, value } }) => {
@@ -22,12 +25,15 @@ class LoginForm extends Component {
   handleSubmit = event => {
     event.preventDefault();
 
-    // const {} = this.props;
+    const { onLogin } = this.props;
+
+    onLogin(this.state);
   };
+
   render() {
     const { email, password } = this.state;
     return (
-      <form className={styles.loginForm}>
+      <form className={styles.loginForm} onSubmit={this.handleSubmit}>
         <Input
           inputLabel="e-mail"
           type="email"
@@ -49,7 +55,13 @@ class LoginForm extends Component {
   }
 }
 
-const mapStateToProps = () => {};
-const mapDispatchToProps = () => {};
+const mapDispatchToProps = dispatch => ({
+  onLogin: data => dispatch(authOperations.logIn(data)),
+});
 
-export default connect(mapStateToProps, mapDispatchToProps)(LoginForm);
+//сокращённая запись
+// const mapDispatchToProps = {
+//   onLogin: authOperations.login
+// };
+
+export default connect(null, mapDispatchToProps)(LoginForm);
