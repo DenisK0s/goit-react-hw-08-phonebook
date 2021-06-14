@@ -1,5 +1,9 @@
 //модули
 import { NavLink } from 'react-router-dom';
+import { connect } from 'react-redux';
+
+//селекторы
+import { getIsAuthenticated } from '../../../redux/auth';
 
 //либы
 import classnames from 'classnames';
@@ -10,29 +14,37 @@ import styles from './MainNavigation.module.css';
 //настройки
 import routes from '../../../routes';
 
-const navLinkData = [
-  { path: `${routes.home}`, name: 'Home', exact: true },
-  { path: `${routes.contacts}`, name: 'Contacts', exact: true },
-];
-
-const MainNavigation = () => {
+const MainNavigation = ({ isAuthenticated }) => {
   return (
     <nav className={styles.navigation}>
       <ul className={classnames(styles.mainNavList, 'list')}>
-        {navLinkData.map(({ path, name, exact }) => (
+        <NavLink
+          key="Home"
+          to={routes.home}
+          exact
+          className={classnames(styles.navigationItem, 'link')}
+          activeClassName={styles.navigationActiveItem}
+        >
+          Home
+        </NavLink>
+        {isAuthenticated && (
           <NavLink
-            key={name}
-            to={path}
-            exact={exact}
+            key="Contacts"
+            to={routes.contacts}
+            exact
             className={classnames(styles.navigationItem, 'link')}
             activeClassName={styles.navigationActiveItem}
           >
-            {name}
+            Contacts
           </NavLink>
-        ))}
+        )}
       </ul>
     </nav>
   );
 };
 
-export default MainNavigation;
+const mapStateToProps = state => ({
+  isAuthenticated: getIsAuthenticated(state),
+});
+
+export default connect(mapStateToProps)(MainNavigation);

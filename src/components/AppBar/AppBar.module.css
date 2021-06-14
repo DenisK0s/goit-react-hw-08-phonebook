@@ -4,12 +4,12 @@
 
 .headerContainer {
   display: flex;
-  /* justify-content: space-between; */
+
   align-items: center;
 
-  /* background-color: mediumorchid; */
+  background-color: rgba(192, 192, 192, 0.05);
 
-  border-bottom: 1px solid black;
+  /* border-bottom: 1px solid black; */
 
-  box-shadow: 0 10px 10px -5px rgba(0, 0, 0, 0.3);
+  box-shadow: 0 10px 20px 5px rgba(0, 0, 0, 0.3);
 }

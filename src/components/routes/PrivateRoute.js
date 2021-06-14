@@ -8,12 +8,13 @@ import { getIsAuthenticated } from '../../redux/auth';
 const PrivatRoute = ({
   component: Component,
   isAuthenticated,
+  redirectTo,
   ...routerProps
 }) => (
   <Route
     {...routerProps}
     render={props =>
-      isAuthenticated ? <Component {...props} /> : <Redirect to="/login" />
+      isAuthenticated ? <Component {...props} /> : <Redirect to={redirectTo} />
     }
   />
 );

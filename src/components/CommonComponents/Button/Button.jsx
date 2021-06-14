@@ -4,11 +4,17 @@ import classnames from 'classnames';
 //стили
 import styles from './Button.module.css';
 
-const Button = ({ children, type = 'button', className, cbOnClick }) => {
+const Button = ({
+  children,
+  type = 'button',
+  className,
+  cbArgs,
+  cbOnClick,
+}) => {
   return cbOnClick ? (
     <button
       type={type}
-      onClick={cbOnClick}
+      onClick={cbArgs ? () => cbOnClick(...cbArgs) : cbOnClick}
       className={classnames(styles.button, className)}
     >
       {children}

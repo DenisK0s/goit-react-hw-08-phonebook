@@ -1,11 +1,18 @@
 //модули
 import PropTypes from 'prop-types';
+import { connect } from 'react-redux';
+
+//компоненты
+import Button from '../CommonComponents/Button';
 
 //либы
 import classnames from 'classnames';
 
 //стили
 import styles from './Contacts.module.css';
+
+//операции
+import { phonebookOperations } from '../../redux/phonebook';
 
 const Contacts = ({ contactsItems, onDeleteContact, loadingContacts }) => {
   return (
@@ -17,9 +24,9 @@ const Contacts = ({ contactsItems, onDeleteContact, loadingContacts }) => {
               <span className={styles.contactValue}>
                 {name}: {number}
               </span>
-              <button type="button" onClick={() => onDeleteContact(id)}>
+              <Button onClick={onDeleteContact} cbArgs={id}>
                 delete
-              </button>
+              </Button>
             </li>
           );
         })}
@@ -33,4 +40,8 @@ Contacts.propTypes = {
   onDeleteContact: PropTypes.func,
 };
 
-export default Contacts;
+const mapDispatchToProps = dispatch => ({
+  onDeleteContact: id => dispatch(phonebookOperations.deleteContact(id)),
+});
+
+export default connect(null, mapDispatchToProps)(Contacts);

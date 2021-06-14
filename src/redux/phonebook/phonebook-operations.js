@@ -16,8 +16,6 @@ import {
 const fetchContacts = () => dispatch => {
   dispatch(fetchContactsRequest());
 
-  console.log('fetch cont oper');
-
   axios
     .get('/contacts')
     .then(({ data }) => dispatch(fetchContactsSuccess(data)))

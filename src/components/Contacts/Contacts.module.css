@@ -1,18 +1,29 @@
 .contacts {
-  width: 500px;
+  flex-grow: 1;
 
-  padding-top: 20px;
+  padding-top: 70px;
 }
 
 .contactsList {
   display: flex;
   flex-wrap: wrap;
   flex-direction: column;
+
+  width: 400px;
+
+  margin: 0 auto;
 }
 
 .contactsListItem {
   display: inline-flex;
+  align-items: center;
   justify-content: space-between;
+
+  padding: 10px;
+
+  border-radius: 2px;
+
+  background-color: silver;
 }
 
 .contactsListItem + .contactsListItem {
@@ -20,5 +31,7 @@
 }
 
 .contactValue {
-  margin-right: 10px;
+  margin: auto;
+
+  font-weight: bold;
 }

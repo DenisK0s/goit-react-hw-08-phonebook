@@ -11,6 +11,9 @@ import Loader from '../components/Loader';
 //операции
 import { phonebookOperations, phonebookSelectors } from '../redux/phonebook';
 
+//стили
+import styles from './ContactsPage.module.css';
+
 class ContactsPage extends Component {
   componentDidMount() {
     this.props.fetchContacts();
@@ -19,13 +22,15 @@ class ContactsPage extends Component {
   render() {
     const { loadingContacts } = this.props;
     return (
-      <>
-        <h2 className="Title">Phonebook</h2>
-        <ContactsForm onSubmit={this.formSubmitHandler} />
-        <h2 className="Title">Contacts</h2>
-        <Filter />
+      <div className={styles.contactsBox}>
+        <div className={styles.contactsInfoBar}>
+          <h2 className="Title">Form</h2>
+          <ContactsForm onSubmit={this.formSubmitHandler} />
+          <h2 className="Title">Filter</h2>
+          <Filter />
+        </div>
         {loadingContacts ? <Loader type="Hearts" /> : <Contacts />}
-      </>
+      </div>
     );
   }
 }

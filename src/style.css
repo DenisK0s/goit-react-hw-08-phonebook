@@ -1,3 +1,16 @@
+body {
+  height: 100vh;
+
+  background-image: linear-gradient(
+      rgba(47, 48, 58, 0.4),
+      rgba(47, 48, 58, 0.4)
+    ),
+    url('./images/82-820049_887725-title-old-phone-technology-phone-book-old.jpg');
+  background-size: top left;
+  background-position: center;
+  background-repeat: no-repeat;
+}
+
 .list {
   list-style: none;
 }

@@ -1,0 +1,11 @@
+.contactsBox {
+  display: flex;
+
+  margin: 0 auto;
+}
+
+.contactsInfoBar {
+  flex-basis: 300px;
+
+  margin-right: 15px;
+}

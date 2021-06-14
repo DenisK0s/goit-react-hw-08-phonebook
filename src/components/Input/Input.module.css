@@ -1,5 +1,7 @@
 .inputLabel {
   display: block;
+
+  color: gray;
 }
 
 .input {

@@ -6,6 +6,8 @@ import { connect } from 'react-redux';
 //компоненты
 import AppBar from './components/AppBar';
 import Container from './components/CommonComponents/Container';
+import PrivateRoute from './components/routes/PrivateRoute';
+import PublicRoute from './components/routes/PublicRoute';
 
 //операции
 import { authOperations } from './redux/auth';
@@ -41,10 +43,22 @@ class App extends Component {
         <Container>
           <Suspense fallback={<h1>Loading...</h1>}>
             <Switch>
-              <Route path={routes.home} exact component={HomePage} />
-              <Route path={routes.contacts} component={ContactsPage} />
-              <Route path={routes.registration} component={RegisterPage} />
-              <Route path={routes.login} component={LoginPage} />
+              <PublicRoute path={routes.home} exact component={HomePage} />
+              <PrivateRoute
+                path={routes.contacts}
+                component={ContactsPage}
+                redirectTo="/login"
+              />
+              <PublicRoute
+                path={routes.registration}
+                component={RegisterPage}
+                restricted
+              />
+              <PublicRoute
+                path={routes.login}
+                component={LoginPage}
+                restricted
+              />
               <Route component={ErrorPage} />
             </Switch>
           </Suspense>
