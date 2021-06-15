@@ -18,26 +18,28 @@ const MainNavigation = ({ isAuthenticated }) => {
   return (
     <nav className={styles.navigation}>
       <ul className={classnames(styles.mainNavList, 'list')}>
-        <NavLink
-          key="Home"
-          to={routes.home}
-          exact
-          className={classnames(styles.navigationItem, 'link')}
-          activeClassName={styles.navigationActiveItem}
-        >
-          Home
-        </NavLink>
-        {isAuthenticated && (
+        <li className={styles.navListItem}>
           <NavLink
-            key="Contacts"
-            to={routes.contacts}
+            to={routes.home}
             exact
             className={classnames(styles.navigationItem, 'link')}
             activeClassName={styles.navigationActiveItem}
           >
-            Contacts
+            Home
           </NavLink>
-        )}
+        </li>
+        <li className={styles.navListItem}>
+          {isAuthenticated && (
+            <NavLink
+              to={routes.contacts}
+              exact
+              className={classnames(styles.navigationItem, 'link')}
+              activeClassName={styles.navigationActiveItem}
+            >
+              Contacts
+            </NavLink>
+          )}
+        </li>
       </ul>
     </nav>
   );

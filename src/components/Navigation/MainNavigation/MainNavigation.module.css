@@ -9,19 +9,21 @@
   margin-left: 15px;
 }
 
-.navigationItem:not(:last-child) {
+.navListItem:not(:last-child) {
   margin-right: 15px;
-}
-
-.navigationActiveItem {
-  color: mediumseagreen;
 }
 
 .navigationItem {
   font-weight: 700;
 
+  color: gray;
+
   transform: scale(1);
   transition: transform, 200ms linear;
+}
+
+.navigationActiveItem {
+  color: mediumseagreen;
 }
 
 .navigationItem:hover,

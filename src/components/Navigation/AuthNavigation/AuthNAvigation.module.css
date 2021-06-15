@@ -12,15 +12,17 @@
   margin-right: 15px;
 }
 
-.authNavActiveLink {
-  color: mediumseagreen;
-}
-
 .authNavLink {
   font-weight: 700;
 
+  color: gray;
+
   transform: scale(1);
   transition: transform, 200ms linear;
+}
+
+.authNavActiveLink {
+  color: mediumseagreen;
 }
 
 .authNavLink:hover,

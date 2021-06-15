@@ -14,7 +14,7 @@ const Button = ({
   return cbOnClick ? (
     <button
       type={type}
-      onClick={cbArgs ? () => cbOnClick(...cbArgs) : cbOnClick}
+      onClick={cbArgs ? () => cbOnClick(cbArgs) : cbOnClick}
       className={classnames(styles.button, className)}
     >
       {children}

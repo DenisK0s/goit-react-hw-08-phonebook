@@ -1,0 +1,7 @@
+.loader {
+  display: flex;
+  justify-content: center;
+  width: 400px;
+  margin: 0 auto;
+  padding-top: 70px;
+}

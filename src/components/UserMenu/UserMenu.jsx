@@ -12,7 +12,7 @@ import { authOperations } from '../../redux/auth';
 import styles from './UserMenu.module.css';
 
 //иконки
-import defAvatarIcon from '../../icons/user.png';
+import defAvatarIcon from '../../icons/iconfinder_4230281_boy_man_user_icon.svg';
 
 const UserMenu = ({ avatar, name, onLogout }) => {
   return (
